@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload File PDF</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Form Pengiriman PDF oleh Dosen</h1>
+    <form action="/upload-pdf" method="POST" enctype="multipart/form-data">
+      <input type="file" name="pdf" accept="application/pdf" required>
+      <button type="submit">Kirim File PDF</button>
+    </form>
+  </div>
+</body>
+</html>

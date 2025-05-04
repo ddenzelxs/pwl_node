@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surat Masuk - Kaprodi</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Daftar Surat Mahasiswa - Kaprodi</h1>
+    <table border="1" cellpadding="10" cellspacing="0">
+      <thead>
+        <tr>
+          <th>NRP</th>
+          <th>Nama</th>
+          <th>Fakultas</th>
+          <th>Program Studi</th>
+          <th>Jenis Surat</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (surat.length === 0) { %>
+          <tr>
+            <td colspan="7">Tidak ada surat yang diajukan.</td>
+          </tr>
+        <% } else { %>
+          <% surat.forEach(s => { %>
+            <tr>
+              <td><%= s.nrp %></td>
+              <td><%= s.nama %></td>
+              <td><%= s.fakultas %></td>
+              <td><%= s.jurusan %></td>
+              <td><%= s.jenis_surat %></td>
+              <td><%= s.status_approved %></td>
+              <td>
+                <% if (s.status_approved === 'Pending') { %>
+                  <form action="/kaprodi/approve" method="POST">
+                    <input type="hidden" name="nrp" value="<%= s.nrp %>">
+                    <input type="hidden" name="jenis_surat" value="<%= s.jenis_surat %>">
+                    <button type="submit">Approve</button>
+                  </form>                      
+                  <form action="/kaprodi/decline" method="POST" style="display:inline;">
+                    <input type="hidden" name="nrp" value="<%= s.nrp %>">
+                    <input type="hidden" name="jenis" value="<%= s.jenis %>">
+                    <button type="submit">Decline</button>
+                  </form>
+                <% } else if (s.status_approved === 'Disetujui' && !s.file) { %>
+                  Belum ada file
+                <% } else if (s.file) { %>
+                  <a href="/uploads/<%= s.file %>" target="_blank">Lihat File</a>
+                <% } else { %>
+                  -
+                <% } %>
+              </td>
+            </tr>
+          <% }); %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

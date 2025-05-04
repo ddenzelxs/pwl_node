@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Mahasiswa</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Halo, <%= mahasiswa.nama %></h1>
+    <p><strong>NRP:</strong> <%= mahasiswa.nrp %></p>
+    <p><strong>Fakultas:</strong> <%= mahasiswa.fakultas %></p>
+    <p><strong>Program Studi:</strong> <%= mahasiswa.jurusan %></p>
+
+    <div class="form-section">
+      <h2>Ajukan Surat Baru</h2>
+      <form action="/mahasiswa/<%= mahasiswa.nrp %>/tambah-surat" method="POST">
+        <label for="jenis">Jenis Surat:</label>
+        <input type="text" id="jenis" name="jenis" placeholder="Contoh: Surat Aktif" required>
+        <button type="submit">Ajukan</button>
+      </form>
+    </div>
+    
+    <h2>Daftar Surat</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Jenis Surat</th>
+          <th>Status</th>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (surat.length > 0) { %>
+          <% surat.forEach(function(item) { %>
+            <tr>
+              <td><%= item.jenis_surat %></td>
+              <td>
+                <% if (item.status_approved === 'Disetujui') { %>
+                  ✅ <%= item.status_approved %>
+                <% } else { %>
+                  ⏳ Belum Disetujui
+                <% } %>
+              </td>
+              <td>
+                <% if (item.file) { %>
+                  <a href="/uploads/<%= item.file %>" target="_blank">📄 Lihat PDF</a>
+                <% } else { %>
+                  Belum ada file
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="3" style="text-align:center;">Tidak ada surat yang dikirim</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

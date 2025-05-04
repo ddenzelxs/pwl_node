@@ -1,0 +1,21 @@
+[
+    {
+      "nrp": "123456789",
+      "nama": "Andi Setiawan",
+      "fakultas": "Fakultas Teknik",
+      "jurusan": "Teknik Informatika"
+    },
+    {
+      "nrp": "987654321",
+      "nama": "Budi Santoso",
+      "fakultas": "Fakultas Ekonomi",
+      "jurusan": "Manajemen"
+    },
+    {
+      "nrp": "456123789",
+      "nama": "Citra Dewi",
+      "fakultas": "Fakultas Ilmu Sosial",
+      "jurusan": "Psikologi"
+    }
+  ]
+  
