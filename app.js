@@ -10,6 +10,7 @@ const mahasiswaData = require('./mahasiswa.json');
 const suratData = require('./surat.json');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -155,7 +156,7 @@ app.post('/kaprodi/approve', (req, res) => {
 });
 
 // Approve surat
-app.post('/kaprodi/approve', (req, res) => {
+app.post('/kaprodi/decline', (req, res) => {
   const { id_surat, kaprodi_nrp } = req.body;
 
   let suratList = JSON.parse(fs.readFileSync(suratFilePath));

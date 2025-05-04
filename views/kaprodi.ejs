@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Surat Masuk - Kaprodi</title>
+  <title>Surat Masuk - Kepala Program Studi</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Daftar Surat Mahasiswa - Kaprodi</h1>
+    <h1>Daftar Surat Mahasiswa - Kepala Program Studi</h1>
     <table border="1" cellpadding="10" cellspacing="0">
       <thead>
         <tr>
@@ -42,8 +42,8 @@
                     <button type="submit">Setujui</button>
                   </form>                  
                   <form action="/kaprodi/decline" method="POST" style="display:inline-block;margin-left:10px;">
-                    <input type="hidden" name="nrp" value="<%= s.nrp %>">
-                    <input type="hidden" name="jenis" value="<%= s.jenis_surat %>">
+                    <input type="hidden" name="id_surat" value="<%= s.id_surat %>">
+                    <input type="hidden" name="kaprodi_nrp" value="<%= kaprodi_nrp %>">
                     <button type="submit">Tolak</button>
                   </form>
                 <% } else if (s.status_approved === 'Disetujui' && !s.file) { %>
