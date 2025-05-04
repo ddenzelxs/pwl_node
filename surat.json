@@ -1,35 +1,41 @@
 [
   {
+    "id_surat": 1,
     "nrp": "123456789",
     "jenis_surat": "Surat Aktif Kuliah",
     "status_approved": "Disetujui",
     "file": "1746381422832.pdf"
   },
   {
+    "id_surat": 2,
     "nrp": "123456789",
     "jenis_surat": "Surat Keterangan Lulus",
-    "status_approved": "Pending",
-    "file": null
+    "status_approved": "Disetujui",
+    "file": "1746395023918.pdf"
   },
   {
+    "id_surat": 3,
     "nrp": "123456789",
     "jenis_surat": "Laporan Hasil Studi",
     "status_approved": "Disetujui",
     "file": null
   },
   {
+    "id_surat": 4,
     "nrp": "123456789",
     "jenis_surat": "Surat Aktif Kuliah",
-    "status_approved": "Pending",
+    "status_approved": "Disetujui",
     "file": null
   },
   {
+    "id_surat": 5,
     "nrp": "123456789",
-    "jenis_surat": "Laporan Hasil Studi",
+    "jenis_surat": "Surat Mata Kuliah",
     "status_approved": "Pending",
     "file": null
   },
   {
+    "id_surat": 6,
     "nrp": "123456789",
     "jenis_surat": "Laporan Hasil Studi",
     "status_approved": "Pending",

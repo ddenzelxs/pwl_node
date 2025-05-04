@@ -1,89 +1,160 @@
+/* style.css */
+
+/* Reset style untuk elemen dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eef2f7;
-    margin: 0;
-    padding: 0;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+h1 {
+  font-size: 24px;
+  color: #4a90e2;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+td a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+tr:nth-child(even) td {
+  background-color: #f1f1f1;
+}
+
+tr:hover td {
+  background-color: #f0f0f0;
+}
+
+/* Form */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"],
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #357ab7;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+/* Status icons */
+td:has(> form) button {
+  background-color: #5cb85c;
+  color: white;
+  font-weight: bold;
+}
+
+td:has(> form button) {
+  margin-top: 5px;
+}
+
+/* Styling for "Belum disetujui" and similar messages */
+td:has(> form button) {
+  color: #d9534f;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
   }
-  
-  h1, h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+
+  h1 {
+    font-size: 22px;
   }
-  
-  p {
-    font-size: 16px;
-    margin: 5px 0;
-  }
-  
-  .form-section {
-    margin-top: 30px;
-    margin-bottom: 40px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #2e86de;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #1b4f72;
-  }
-  
+
   table {
-    width: 100%;
-    border-collapse: collapse;
+    font-size: 14px;
   }
-  
+
   th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    padding: 8px;
   }
-  
-  th {
-    background-color: #f8f8f8;
+
+  form input[type="text"],
+  form input[type="file"],
+  form button {
+    font-size: 14px;
   }
-  
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  a {
-    color: #2e86de;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+}

@@ -2,18 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar File PDF</title>
+  <title>Manager - Upload Surat</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <h1>Daftar Surat</h1>
   <div class="container">
-    <h1>Daftar File PDF yang Dikirimkan</h1>
-    <ul>
-      <% files.forEach(file => { %>
-        <li><a href="/uploads/<%= file %>" download><%= file %></a></li>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <th>ID Surat</th>
+        <th>NRP</th>
+        <th>Nama</th>
+        <th>Jenis Surat</th>
+        <th>Status</th>
+        <th>File</th>
+        <th>Aksi</th>
+      </tr>
+      <% suratList.forEach(s => { %>
+        <tr>
+          <td><%= s.id_surat %></td>
+          <td><%= s.nrp %></td>
+          <td><%= s.nama %></td>
+          <td><%= s.jenis_surat %></td>
+          <td><%= s.status_approved %></td>
+          <td>
+            <% if (s.file) { %>
+              <a href="/uploads/<%= s.file %>" target="_blank">Lihat PDF</a>
+            <% } else { %>
+              Belum diupload
+            <% } %>
+          </td>
+          <td>
+            <% if (s.status_approved === 'Disetujui' && !s.file) { %>
+              <form action="/manager/<%= manager_nrp %>/upload-pdf" method="POST" enctype="multipart/form-data" style="display:inline-block;">
+                <input type="hidden" name="id_surat" value="<%= s.id_surat %>">
+                <input type="file" name="pdf" accept=".pdf" required>
+                <button type="submit">Upload</button>
+              </form>
+            <% } else if (s.file) { %>
+              ✔️ Sudah diupload
+            <% } else { %>
+              ❌ Belum disetujui
+            <% } %>
+          </td>        
+        </tr>
       <% }) %>
-    </ul>
+    </table>
   </div>
 </body>
 </html>

@@ -23,7 +23,7 @@
       <tbody>
         <% if (surat.length === 0) { %>
           <tr>
-            <td colspan="7">Tidak ada surat yang diajukan.</td>
+            <td colspan="7" style="text-align:center;">Tidak ada surat yang diajukan.</td>
           </tr>
         <% } else { %>
           <% surat.forEach(s => { %>
@@ -36,15 +36,15 @@
               <td><%= s.status_approved %></td>
               <td>
                 <% if (s.status_approved === 'Pending') { %>
-                  <form action="/kaprodi/approve" method="POST">
+                  <form action="/kaprodi/approve" method="POST" style="display:inline-block;">
+                    <input type="hidden" name="id_surat" value="<%= s.id_surat %>">
+                    <input type="hidden" name="kaprodi_nrp" value="<%= kaprodi_nrp %>">
+                    <button type="submit">Setujui</button>
+                  </form>                  
+                  <form action="/kaprodi/decline" method="POST" style="display:inline-block;margin-left:10px;">
                     <input type="hidden" name="nrp" value="<%= s.nrp %>">
-                    <input type="hidden" name="jenis_surat" value="<%= s.jenis_surat %>">
-                    <button type="submit">Approve</button>
-                  </form>                      
-                  <form action="/kaprodi/decline" method="POST" style="display:inline;">
-                    <input type="hidden" name="nrp" value="<%= s.nrp %>">
-                    <input type="hidden" name="jenis" value="<%= s.jenis %>">
-                    <button type="submit">Decline</button>
+                    <input type="hidden" name="jenis" value="<%= s.jenis_surat %>">
+                    <button type="submit">Tolak</button>
                   </form>
                 <% } else if (s.status_approved === 'Disetujui' && !s.file) { %>
                   Belum ada file
